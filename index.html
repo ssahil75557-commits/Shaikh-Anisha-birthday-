@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -769,11 +768,162 @@ footer p{
         font-size:45px;
     }
 }
+    /* =========================
+   CINEMATIC OPENING
+========================= */
+
+#opening{
+    position:fixed;
+    inset:0;
+    z-index:99999;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:
+        radial-gradient(circle at center,#35102f 0%,#100614 45%,#050207 100%);
+    animation:openingOut 1.5s ease 5.5s forwards;
+}
+
+.opening-gift{
+    font-size:85px;
+    animation:giftIntro 2s ease-in-out infinite;
+    filter:drop-shadow(0 0 25px rgba(255,100,190,.6));
+}
+
+@keyframes giftIntro{
+    0%,100%{
+        transform:translateY(0) scale(1);
+    }
+    50%{
+        transform:translateY(-15px) scale(1.08);
+    }
+}
+
+.opening-small{
+    margin-top:20px;
+    color:#ff9bd5;
+    letter-spacing:5px;
+    font-size:13px;
+    text-transform:uppercase;
+    opacity:0;
+    animation:textIn 1s ease .8s forwards;
+}
+
+#opening h1{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(42px,8vw,75px);
+    margin:12px 0;
+    background:linear-gradient(90deg,#fff,#ff8bc9,#c795ff,#fff);
+    background-size:300%;
+    -webkit-background-clip:text;
+    color:transparent;
+    opacity:0;
+    animation:textIn 1.2s ease 1.5s forwards,
+              shine 3s linear 2.5s infinite;
+}
+
+.opening-name{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(32px,6vw,55px);
+    color:#fff;
+    opacity:0;
+    animation:textIn 1.2s ease 2.5s forwards;
+}
+
+.opening-date{
+    margin-top:12px;
+    color:#aaa;
+    letter-spacing:4px;
+    opacity:0;
+    animation:textIn 1s ease 3.4s forwards;
+}
+
+.sparkles{
+    position:absolute;
+    color:#ff9bd5;
+    font-size:25px;
+    letter-spacing:25px;
+    opacity:0;
+    animation:
+        sparkleIn 1s ease 1s forwards,
+        sparkleFloat 3s ease-in-out 2s infinite;
+}
+
+.loading-line{
+    width:0;
+    height:2px;
+    margin-top:30px;
+    background:linear-gradient(90deg,#ff4ca5,#b86cff);
+    box-shadow:0 0 15px #ff4ca5;
+    animation:lineLoad 4.5s ease forwards;
+}
+
+@keyframes textIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes sparkleIn{
+    from{
+        opacity:0;
+        transform:scale(.5);
+    }
+    to{
+        opacity:.8;
+        transform:scale(1);
+    }
+}
+
+@keyframes sparkleFloat{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-12px)}
+}
+
+@keyframes shine{
+    from{background-position:0%}
+    to{background-position:300%}
+}
+
+@keyframes lineLoad{
+    from{width:0}
+    to{width:180px}
+}
+
+@keyframes openingOut{
+    to{
+        opacity:0;
+        visibility:hidden;
+        pointer-events:none;
+    }
+    }
 </style>
 </head>
 
 <body>
+<!-- OPENING ANIMATION -->
+<div id="opening">
+    <div class="sparkles">✦ ✧ ✦ ✧ ✦</div>
 
+    <div class="opening-gift">🎁</div>
+
+    <p class="opening-small">A little surprise...</p>
+
+    <h1>For Someone Special ❤️</h1>
+
+    <div class="opening-name">Shaikh Anisha</div>
+
+    <p class="opening-date">13 • 09 • 2026</p>
+
+    <div class="loading-line"></div>
+</div>
 <!-- =========================
      LOGIN SCREEN
 ========================= -->
