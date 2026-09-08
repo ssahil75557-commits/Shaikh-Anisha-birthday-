@@ -912,7 +912,11 @@ footer p{
     align-items:center;
     justify-content:center;
     padding:20px;
-    background:rgba(3,1,7,.96);
+    background:
+    radial-gradient(circle at 15% 20%,rgba(255,105,180,.28),transparent 30%),
+    radial-gradient(circle at 85% 80%,rgba(150,80,255,.30),transparent 35%),
+    radial-gradient(circle at 50% 50%,rgba(255,60,170,.10),transparent 45%),
+    #08030d;
     backdrop-filter:blur(15px);
 }
 
@@ -984,6 +988,64 @@ footer p{
     0%,100%{transform:scale(1)}
     50%{transform:scale(1.2)}
 }
+    /* PREMIUM PHOTO EFFECT */
+
+.photo-surprise-card{
+    position:relative;
+}
+
+.photo-surprise-card::before{
+    content:"";
+    position:absolute;
+    inset:-8px;
+    border-radius:32px;
+    background:linear-gradient(
+        135deg,
+        #ff4ca5,
+        #9b4dff,
+        #ff8ac9,
+        #6d5cff
+    );
+    background-size:300% 300%;
+    z-index:-1;
+    filter:blur(8px);
+    opacity:.8;
+    animation:borderGlow 4s ease infinite;
+}
+
+.photo-surprise-card img{
+    position:relative;
+    border:3px solid rgba(255,255,255,.8);
+    box-shadow:
+        0 0 25px rgba(255,100,190,.6),
+        0 0 70px rgba(150,70,255,.4);
+    animation:photoGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes borderGlow{
+    0%{
+        background-position:0% 50%;
+    }
+    50%{
+        background-position:100% 50%;
+    }
+    100%{
+        background-position:0% 50%;
+    }
+}
+
+@keyframes photoGlow{
+    from{
+        box-shadow:
+            0 0 20px rgba(255,100,190,.5),
+            0 0 50px rgba(150,70,255,.3);
+    }
+    to{
+        box-shadow:
+            0 0 40px rgba(255,100,190,.8),
+            0 0 90px rgba(150,70,255,.55);
+    }
+        }
 </style>
 </head>
 
