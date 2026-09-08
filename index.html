@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#100617">
+<meta name="theme-color" content="#09030d">
 
 <title>Happy Birthday Shaikh Anisha 🎂</title>
 
@@ -22,8 +23,8 @@ html{
 
 body{
     font-family:'Poppins',sans-serif;
-    background:#09030d;
-    color:#fff;
+    background:#08030d;
+    color:white;
     overflow-x:hidden;
 }
 
@@ -32,21 +33,38 @@ button{
 }
 
 .hidden{
-    display:none!important;
+    display:none !important;
 }
 
-/* ================= LOGIN ================= */
+/* =========================
+   BACKGROUND
+========================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background:
+    radial-gradient(circle at 15% 20%,rgba(255,105,180,.12),transparent 25%),
+    radial-gradient(circle at 85% 80%,rgba(150,80,255,.12),transparent 25%);
+    z-index:-2;
+}
+
+/* =========================
+   LOGIN
+========================= */
 
 #loginScreen{
     min-height:100vh;
     display:flex;
-    justify-content:center;
     align-items:center;
-    padding:20px;
+    justify-content:center;
+    padding:25px;
     background:
-        radial-gradient(circle at 20% 10%,#7b1769,transparent 32%),
-        radial-gradient(circle at 85% 90%,#30206e,transparent 35%),
-        #09030d;
+    radial-gradient(circle at 20% 20%,#7b1769,transparent 28%),
+    radial-gradient(circle at 80% 80%,#30206e,transparent 30%),
+    #08030d;
 }
 
 .login-card{
@@ -55,16 +73,32 @@ button{
     padding:42px 28px;
     text-align:center;
     border-radius:30px;
-    background:rgba(255,255,255,.075);
+    background:rgba(255,255,255,.07);
     border:1px solid rgba(255,255,255,.15);
     backdrop-filter:blur(18px);
     box-shadow:0 30px 100px rgba(255,0,170,.18);
     animation:loginAppear 1s ease;
 }
 
+@keyframes loginAppear{
+    from{
+        opacity:0;
+        transform:translateY(40px) scale(.95);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
 .login-gift{
-    font-size:70px;
+    font-size:75px;
     animation:float 2s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-12px)}
 }
 
 .login-card h1{
@@ -88,7 +122,7 @@ button{
     border:1px solid rgba(255,255,255,.12);
     outline:none;
     background:rgba(255,255,255,.08);
-    color:#fff;
+    color:white;
     padding:15px;
     margin:7px 0;
     border-radius:14px;
@@ -96,8 +130,8 @@ button{
 }
 
 .input:focus{
-    border-color:#ff69b7;
-    box-shadow:0 0 15px rgba(255,80,180,.15);
+    border-color:#ff69b4;
+    box-shadow:0 0 15px rgba(255,105,180,.15);
 }
 
 .input::placeholder{
@@ -106,7 +140,7 @@ button{
 
 .btn{
     border:none;
-    color:#fff;
+    color:white;
     background:linear-gradient(135deg,#ff4ca5,#934aff);
     padding:14px 25px;
     border-radius:30px;
@@ -118,6 +152,7 @@ button{
 
 .btn:hover{
     transform:translateY(-3px);
+    box-shadow:0 15px 40px rgba(255,60,170,.4);
 }
 
 .login-btn{
@@ -132,147 +167,9 @@ button{
     min-height:18px;
 }
 
-/* ================= MAIN ================= */
-
-#website{
-    display:none;
-}
-
-.<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#100617">
-
-<title>Happy Birthday Shaikh Anisha 🎂</title>
-
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:'Poppins',sans-serif;
-    background:#09030d;
-    color:#fff;
-    overflow-x:hidden;
-}
-
-button{
-    font-family:inherit;
-}
-
-.hidden{
-    display:none!important;
-}
-
-/* ================= LOGIN ================= */
-
-#loginScreen{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
-    background:
-        radial-gradient(circle at 20% 10%,#7b1769,transparent 32%),
-        radial-gradient(circle at 85% 90%,#30206e,transparent 35%),
-        #09030d;
-}
-
-.login-card{
-    width:100%;
-    max-width:430px;
-    padding:42px 28px;
-    text-align:center;
-    border-radius:30px;
-    background:rgba(255,255,255,.075);
-    border:1px solid rgba(255,255,255,.15);
-    backdrop-filter:blur(18px);
-    box-shadow:0 30px 100px rgba(255,0,170,.18);
-    animation:loginAppear 1s ease;
-}
-
-.login-gift{
-    font-size:70px;
-    animation:float 2s ease-in-out infinite;
-}
-
-.login-card h1{
-    font-family:'Cormorant Garamond',serif;
-    font-size:48px;
-    margin:10px 0 5px;
-}
-
-.login-card h1 span{
-    color:#ff86c7;
-}
-
-.login-card p{
-    color:#bbb;
-    font-size:14px;
-    margin-bottom:25px;
-}
-
-.input{
-    width:100%;
-    border:1px solid rgba(255,255,255,.12);
-    outline:none;
-    background:rgba(255,255,255,.08);
-    color:#fff;
-    padding:15px;
-    margin:7px 0;
-    border-radius:14px;
-    font-size:15px;
-}
-
-.input:focus{
-    border-color:#ff69b7;
-    box-shadow:0 0 15px rgba(255,80,180,.15);
-}
-
-.input::placeholder{
-    color:#999;
-}
-
-.btn{
-    border:none;
-    color:#fff;
-    background:linear-gradient(135deg,#ff4ca5,#934aff);
-    padding:14px 25px;
-    border-radius:30px;
-    cursor:pointer;
-    font-weight:600;
-    box-shadow:0 10px 30px rgba(255,60,170,.25);
-    transition:.3s;
-}
-
-.btn:hover{
-    transform:translateY(-3px);
-}
-
-.login-btn{
-    width:100%;
-    margin-top:12px;
-}
-
-#error{
-    color:#ff8eae;
-    font-size:13px;
-    margin-top:12px;
-    min-height:18px;
-}
-
-/* ================= MAIN ================= */
+/* =========================
+   MAIN WEBSITE
+========================= */
 
 #website{
     display:none;
@@ -288,30 +185,1349 @@ button{
     overflow:hidden;
     padding:30px 20px;
     background:
-        radial-gradient(circle at 15% 15%,#74145f,transparent 35%),
-        radial-gradient(circle at 85% 80%,#2d236f,transparent 38%),
-        #09030d;
+    radial-gradient(circle at 15% 15%,#74145f,transparent 35%),
+    radial-gradient(circle at 85% 80%,#2d236f,transparent 38%),
+    #09030d;
 }
 
 .hero-content{
     position:relative;
     z-index:5;
-}{
-    min-height:100vh;
-    position:relative;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
+    max-width:900px;
+}
+
+.small-title{
+    color:#ff9bd5;
+    letter-spacing:4px;
+    font-size:14px;
+    text-transform:uppercase;
+    animation:fadeUp 1s ease;
+}
+
+.hero h1{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(55px,10vw,110px);
+    line-height:.9;
+    margin:20px 0;
+    background:linear-gradient(135deg,#fff,#ff8bc9,#c58cff);
+    -webkit-background-clip:text;
+    color:transparent;
+    animation:fadeUp 1.2s ease;
+}
+
+.hero h2{
+    font-size:clamp(18px,4vw,28px);
+    font-weight:400;
+    color:#eee;
+    animation:fadeUp 1.5s ease;
+}
+
+.hero p{
+    margin-top:18px;
+    color:#bbb;
+    animation:fadeUp 1.7s ease;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* floating hearts */
+
+.heart{
+    position:absolute;
+    color:#ff72bd;
+    font-size:20px;
+    opacity:.5;
+    animation:heartFloat linear infinite;
+}
+
+@keyframes heartFloat{
+    from{
+        transform:translateY(110vh) rotate(0deg);
+        opacity:0;
+    }
+    20%{opacity:.7}
+    to{
+        transform:translateY(-15vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* =========================
+   MARQUEE
+========================= */
+
+.marquee{
     overflow:hidden;
-    padding:30px 20px;
-    background:
-        radial-gradient(circle at 15% 15%,#74145f,transparent 35%),
-        radial-gradient(circle at 85% 80%,#2d236f,transparent 38%),
-        #09030d;
+    background:linear-gradient(90deg,#ff3e9e,#783dff,#ff3e9e);
+    padding:13px 0;
+    white-space:nowrap;
 }
 
-.hero-content{
-    position:relative;
-    z-index:5;
+.marquee-track{
+    display:inline-block;
+    animation:marquee 18s linear infinite;
+    font-weight:600;
+    letter-spacing:2px;
 }
+
+@keyframes marquee{
+    from{transform:translateX(0)}
+    to{transform:translateX(-50%)}
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+section{
+    padding:90px 20px;
+    max-width:1200px;
+    margin:auto;
+}
+
+.section-title{
+    text-align:center;
+    font-family:'Cormorant Garamond',serif;
+    font-size:55px;
+    margin-bottom:15px;
+}
+
+.section-subtitle{
+    text-align:center;
+    color:#aaa;
+    margin-bottom:50px;
+}
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+.countdown{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    max-width:750px;
+    margin:40px auto 0;
+}
+
+.time-box{
+    padding:25px 10px;
+    border-radius:20px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.1);
+    backdrop-filter:blur(10px);
+}
+
+.time-box strong{
+    display:block;
+    font-size:35px;
+    color:#ff8ac9;
+}
+
+.time-box span{
+    color:#aaa;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+}
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message-card{
+    max-width:900px;
+    margin:auto;
+    padding:50px 35px;
+    border-radius:30px;
+    text-align:center;
+    background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.025));
+    border:1px solid rgba(255,255,255,.1);
+    box-shadow:0 20px 80px rgba(0,0,0,.3);
+}
+
+.message-card p{
+    color:#ddd;
+    line-height:2;
+    font-size:17px;
+}
+
+.signature{
+    margin-top:25px;
+    color:#ff8ac9;
+    font-family:'Cormorant Garamond',serif;
+    font-size:28px;
+}
+
+/* =========================
+   CAKE
+========================= */
+
+.cake-area{
+    text-align:center;
+}
+
+.cake{
+    position:relative;
+    width:220px;
+    height:170px;
+    margin:50px auto 30px;
+}
+
+.cake-bottom{
+    position:absolute;
+    bottom:0;
+    left:10px;
+    width:200px;
+    height:80px;
+    background:linear-gradient(#ff75b8,#b7357d);
+    border-radius:15px 15px 25px 25px;
+    box-shadow:0 15px 35px rgba(255,50,150,.25);
+}
+
+.cake-top{
+    position:absolute;
+    top:35px;
+    left:25px;
+    width:170px;
+    height:60px;
+    background:#ffd5eb;
+    border-radius:50%;
+}
+
+.cake-cream{
+    position:absolute;
+    top:65px;
+    left:25px;
+    width:170px;
+    height:25px;
+    background:#fff0f8;
+    border-radius:50%;
+}
+
+.candle{
+    position:absolute;
+    top:0;
+    left:105px;
+    width:10px;
+    height:55px;
+    background:#fff;
+    border-radius:5px;
+}
+
+.flame{
+    position:absolute;
+    top:-22px;
+    left:-4px;
+    font-size:22px;
+    animation:flame .5s ease-in-out infinite alternate;
+}
+
+@keyframes flame{
+    from{transform:scale(.9) rotate(-5deg)}
+    to{transform:scale(1.1) rotate(5deg)}
+}
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.photo{
+    position:relative;
+    height:360px;
+    overflow:hidden;
+    border-radius:25px;
+    cursor:pointer;
+    border:1px solid rgba(255,255,255,.12);
+    background:#15101a;
+    transition:.4s;
+}
+
+.photo:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 50px rgba(255,50,160,.2);
+}
+
+.photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:.5s;
+}
+
+.photo:hover img{
+    transform:scale(1.06);
+}
+
+.photo-label{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    padding:25px 15px 15px;
+    background:linear-gradient(transparent,rgba(0,0,0,.85));
+    color:white;
+}
+
+/* =========================
+   LIGHTBOX
+========================= */
+
+#lightbox{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.92);
+    z-index:9999;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+#lightbox img{
+    max-width:95%;
+    max-height:90vh;
+    border-radius:20px;
+    box-shadow:0 0 70px rgba(255,100,190,.25);
+}
+
+.close-lightbox{
+    position:absolute;
+    top:20px;
+    right:25px;
+    font-size:40px;
+    cursor:pointer;
+    color:white;
+}
+
+/* =========================
+   WISHES
+========================= */
+
+.wishes{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.wish{
+    padding:30px;
+    border-radius:25px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+    transition:.3s;
+}
+
+.wish:hover{
+    transform:translateY(-7px);
+    border-color:rgba(255,120,200,.35);
+}
+
+.wish span{
+    font-size:35px;
+}
+
+.wish h3{
+    margin:15px 0 10px;
+}
+
+.wish p{
+    color:#aaa;
+    line-height:1.8;
+}
+
+/* =========================
+   GIFT
+========================= */
+
+.gift-area{
+    text-align:center;
+}
+
+.gift{
+    position:relative;
+    width:150px;
+    height:120px;
+    margin:45px auto 30px;
+    cursor:pointer;
+    animation:giftBounce 2s infinite;
+}
+
+@keyframes giftBounce{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-10px)}
+}
+
+.gift-box{
+    position:absolute;
+    bottom:0;
+    width:150px;
+    height:90px;
+    background:linear-gradient(135deg,#ff4ca5,#8c42ff);
+    border-radius:10px;
+}
+
+.gift-lid{
+    position:absolute;
+    top:15px;
+    left:-8px;
+    width:166px;
+    height:30px;
+    background:linear-gradient(135deg,#ff73ba,#9d5cff);
+    border-radius:8px;
+}
+
+.gift-ribbon{
+    position:absolute;
+    left:65px;
+    top:15px;
+    width:20px;
+    height:90px;
+    background:#ffd45e;
+}
+
+.gift-bow{
+    position:absolute;
+    top:-15px;
+    left:42px;
+    font-size:60px;
+}
+
+/* =========================
+   LETTER
+========================= */
+
+.letter{
+    max-width:800px;
+    margin:50px auto 0;
+    padding:40px;
+    background:linear-gradient(135deg,#fff8ed,#ffe9f3);
+    color:#32172a;
+    border-radius:8px;
+    transform:rotate(-1deg);
+    box-shadow:0 20px 70px rgba(0,0,0,.4);
+    display:none;
+}
+
+.letter.show{
+    display:block;
+    animation:letterOpen .8s ease;
+}
+
+@keyframes letterOpen{
+    from{
+        opacity:0;
+        transform:translateY(30px) rotate(-3deg);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) rotate(-1deg);
+    }
+}
+
+.letter h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:40px;
+    margin-bottom:20px;
+}
+
+.letter p{
+    line-height:2;
+    margin-bottom:15px;
+}
+
+/* =========================
+   MUSIC
+========================= */
+
+.music-btn{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    z-index:500;
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    border:none;
+    color:white;
+    background:linear-gradient(135deg,#ff4ca5,#743cff);
+    font-size:22px;
+    cursor:pointer;
+    box-shadow:0 10px 30px rgba(255,60,170,.3);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    padding:60px 20px;
+    text-align:center;
+    background:#050207;
+    border-top:1px solid rgba(255,255,255,.06);
+}
+
+footer h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:40px;
+}
+
+footer p{
+    color:#888;
+    margin-top:10px;
+}
+
+/* =========================
+   CONFETTI
+========================= */
+
+.confetti{
+    position:fixed;
+    width:8px;
+    height:14px;
+    top:-20px;
+    z-index:10000;
+    animation:confettiFall 3s linear forwards;
+}
+
+@keyframes confettiFall{
+    to{
+        transform:translateY(110vh) rotate(720deg);
+    }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:800px){
+
+    section{
+        padding:70px 15px;
+    }
+
+    .countdown{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .gallery{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .wishes{
+        grid-template-columns:1fr;
+    }
+
+    .photo{
+        height:300px;
+    }
+
+    .message-card{
+        padding:35px 20px;
+    }
+}
+
+@media(max-width:500px){
+
+    .login-card{
+        padding:35px 20px;
+    }
+
+    .login-card h1{
+        font-size:40px;
+    }
+
+    .hero h1{
+        font-size:65px;
+    }
+
+    .gallery{
+        grid-template-columns:1fr;
+    }
+
+    .photo{
+        height:390px;
+    }
+
+    .section-title{
+        font-size:45px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     LOGIN SCREEN
+========================= -->
+
+<div id="loginScreen">
+
+    <div class="login-card">
+
+        <div class="login-gift">🎁</div>
+
+        <h1>For <span>Anisha</span> ❤️</h1>
+
+        <p>
+            A little surprise is waiting for you...
+        </p>
+
+        <input
+            id="userId"
+            class="input"
+            type="text"
+            placeholder="Enter your ID"
+        >
+
+        <input
+            id="password"
+            class="input"
+            type="password"
+            placeholder="Enter password"
+        >
+
+        <button class="btn login-btn" onclick="login()">
+            Open My Surprise 💖
+        </button>
+
+        <div id="error"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     MAIN WEBSITE
+========================= -->
+
+<div id="website">
+
+    <!-- HERO -->
+
+    <div class="hero">
+
+        <div class="hero-content">
+
+            <div class="small-title">
+                A Special Day For Someone Special
+            </div>
+
+            <h1>
+                Happy Birthday<br>
+                Anisha
+            </h1>
+
+            <h2>
+                To the most beautiful soul in my world ✨
+            </h2>
+
+            <p>
+                Scroll down... your birthday surprise begins here 💕
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- MARQUEE -->
+
+    <div class="marquee">
+
+        <div class="marquee-track">
+
+            🎂 HAPPY BIRTHDAY ANISHA ❤️
+            ✨ MAY YOUR SMILE NEVER FADE ✨
+            🎁 YOU DESERVE ALL THE HAPPINESS 🎁
+            💖 STAY BLESSED ALWAYS 💖
+            🎂 HAPPY BIRTHDAY ANISHA ❤️
+
+        </div>
+
+    </div>
+
+
+    <!-- COUNTDOWN -->
+
+    <section>
+
+        <h2 class="section-title">
+            Your Special Day ⏳
+        </h2>
+
+        <p class="section-subtitle">
+            Counting every moment until 13 September 2026
+        </p>
+
+        <div class="countdown">
+
+            <div class="time-box">
+                <strong id="days">00</strong>
+                <span>Days</span>
+            </div>
+
+            <div class="time-box">
+                <strong id="hours">00</strong>
+                <span>Hours</span>
+            </div>
+
+            <div class="time-box">
+                <strong id="minutes">00</strong>
+                <span>Minutes</span>
+            </div>
+
+            <div class="time-box">
+                <strong id="seconds">00</strong>
+                <span>Seconds</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- MESSAGE -->
+
+    <section>
+
+        <h2 class="section-title">
+            A Message For You 💌
+        </h2>
+
+        <div class="message-card">
+
+            <p>
+                Dear Anisha,<br><br>
+
+                On your special day, I just want to remind you
+                how precious you are. May your life always be
+                filled with beautiful moments, genuine smiles,
+                peaceful days and people who truly care about you.
+                <br><br>
+
+                Keep smiling, keep dreaming and never stop being
+                the amazing person you are.
+                <br><br>
+
+                May every new chapter of your life be more
+                beautiful than the last one.
+            </p>
+
+            <div class="signature">
+                With lots of love ❤️<br>
+                Your Brother
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CAKE -->
+
+    <section class="cake-area">
+
+        <h2 class="section-title">
+            Make A Wish 🎂
+        </h2>
+
+        <p class="section-subtitle">
+            Close your eyes and make your biggest wish...
+        </p>
+
+        <div class="cake">
+
+            <div class="candle">
+                <div class="flame">🔥</div>
+            </div>
+
+            <div class="cake-top"></div>
+
+            <div class="cake-cream"></div>
+
+            <div class="cake-bottom"></div>
+
+        </div>
+
+        <button class="btn" onclick="celebrate()">
+            Make A Wish ✨
+        </button>
+
+    </section>
+
+
+    <!-- GALLERY -->
+
+    <section>
+
+        <h2 class="section-title">
+            Beautiful Memories 📸
+        </h2>
+
+        <p class="section-subtitle">
+            Six beautiful moments of you ❤️
+        </p>
+
+        <div class="gallery">
+
+            <div class="photo" onclick="openPhoto(this)">
+                <img src="images/IMG-20260908-WA1214.jpg" alt="Anisha Photo 1">
+                <div class="photo-label">
+                    Beautiful Smile ✨
+                </div>
+            </div>
+
+            <div class="photo" onclick="openPhoto(this)">
+                <img src="images/IMG-20260908-WA2282.jpg" alt="Anisha Photo 2">
+                <div class="photo-label">
+                    Always Beautiful 💖
+                </div>
+            </div>
+
+            <div class="photo" onclick="openPhoto(this)">
+                <img src="images/IMG-20260908-WA4321.jpg" alt="Anisha Photo 3">
+                <div class="photo-label">
+                    Precious Moment 🌸
+                </div>
+            </div>
+
+            <div class="photo" onclick="openPhoto(this)">
+                <img src="images/IMG-20260908-WA5613.jpg" alt="Anisha Photo 4">
+                <div class="photo-label">
+                    Just Perfect ✨
+                </div>
+            </div>
+
+            <div class="photo" onclick="openPhoto(this)">
+                <img src="images/file_00000000cfd08230b5e84590a218eef2.png" alt="Anisha Photo 5">
+                <div class="photo-label">
+                    A Beautiful Soul ❤️
+                </div>
+            </div>
+
+            <div class="photo" onclick="openPhoto(this)">
+                <img src="images/file_00000000fd9881f5b07dc944fd546db8.png" alt="Anisha Photo 6">
+                <div class="photo-label">
+                    Forever Special 💕
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- WISHES -->
+
+    <section>
+
+        <h2 class="section-title">
+            Birthday Wishes 🌷
+        </h2>
+
+        <p class="section-subtitle">
+            Some wishes specially written for you
+        </p>
+
+        <div class="wishes">
+
+            <div class="wish">
+                <span>🌸</span>
+                <h3>Happiness</h3>
+                <p>
+                    May your life always be surrounded
+                    by happiness, peace and beautiful smiles.
+                </p>
+            </div>
+
+            <div class="wish">
+                <span>✨</span>
+                <h3>Dreams</h3>
+                <p>
+                    May every dream you have slowly become
+                    a beautiful reality.
+                </p>
+            </div>
+
+            <div class="wish">
+                <span>❤️</span>
+                <h3>Love</h3>
+                <p>
+                    May you always receive the same love
+                    and kindness that you give to others.
+                </p>
+            </div>
+
+            <div class="wish">
+                <span>🌙</span>
+                <h3>Peace</h3>
+                <p>
+                    May your heart always find peace,
+                    even during difficult days.
+                </p>
+            </div>
+
+            <div class="wish">
+                <span>🦋</span>
+                <h3>Growth</h3>
+                <p>
+                    May every year make you stronger,
+                    wiser and even more beautiful.
+                </p>
+            </div>
+
+            <div class="wish">
+                <span>👑</span>
+                <h3>Success</h3>
+                <p>
+                    May you achieve everything you work for
+                    and become the person you dream to be.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- GIFT -->
+
+    <section class="gift-area">
+
+        <h2 class="section-title">
+            One More Surprise 🎁
+        </h2>
+
+        <p class="section-subtitle">
+            Something special is hidden inside...
+        </p>
+
+        <div class="gift" onclick="openGift()">
+
+            <div class="gift-bow">🎀</div>
+
+            <div class="gift-lid"></div>
+
+            <div class="gift-box"></div>
+
+            <div class="gift-ribbon"></div>
+
+        </div>
+
+        <button class="btn" onclick="openGift()">
+            Open Gift 🎁
+        </button>
+
+
+        <div class="letter" id="letter">
+
+            <h2>
+                A Secret Letter For You 💌
+            </h2>
+
+            <p>
+                Dear Anisha,
+            </p>
+
+            <p>
+                Some people make life brighter just by being
+                themselves. You are one of those people.
+            </p>
+
+            <p>
+                I hope this new year of your life brings you
+                countless reasons to smile, beautiful memories
+                to remember and dreams worth chasing.
+            </p>
+
+            <p>
+                Never forget that you are special, loved and
+                capable of achieving wonderful things.
+            </p>
+
+            <p>
+                Keep shining. Keep smiling. And always stay
+                exactly the beautiful person you are. ❤️
+            </p>
+
+            <p>
+                Happy Birthday once again! 🎂
+            </p>
+
+            <p>
+                — Your Brother ❤️
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- FINAL -->
+
+    <section>
+
+        <div class="message-card">
+
+            <h2 style="font-family:'Cormorant Garamond',serif;font-size:45px;">
+                Once Again... 🎂
+            </h2>
+
+            <p style="margin-top:20px;">
+                Happy Birthday, Shaikh Anisha! ❤️
+                <br><br>
+                May this year be your most beautiful chapter yet.
+                <br>
+                Keep smiling and keep shining. ✨
+            </p>
+
+            <button
+                class="btn"
+                style="margin-top:25px;"
+                onclick="celebrate()"
+            >
+                Celebrate Again 🎉
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <h2>
+            Shaikh Anisha ❤️
+        </h2>
+
+        <p>
+            13 September 2026 • Made with Love by Your Brother
+        </p>
+
+    </footer>
+
+</div>
+
+
+<!-- LIGHTBOX -->
+
+<div id="lightbox" onclick="closePhoto()">
+
+    <div class="close-lightbox">
+        ×
+    </div>
+
+    <img id="lightboxImg" src="" alt="Full Photo">
+
+</div>
+
+
+<!-- MUSIC BUTTON -->
+
+<button class="music-btn" onclick="toggleMusic()" title="Music">
+    🎵
+</button>
+
+<!--
+    OPTIONAL MUSIC
+
+    Later, if you upload:
+    music/birthday.mp3
+
+    then change the audio src below.
+-->
+
+<audio id="music" loop>
+    <source src="music/birthday.mp3" type="audio/mpeg">
+</audio>
+
+
+<script>
+
+/* =========================
+   LOGIN
+========================= */
+
+function login(){
+
+    const id = document.getElementById("userId").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const error = document.getElementById("error");
+
+    if(id === "anisha" && password === "birthday123"){
+
+        document.getElementById("loginScreen").style.display = "none";
+        document.getElementById("website").style.display = "block";
+
+        window.scrollTo(0,0);
+
+        createHearts();
+
+    }else{
+
+        error.innerText =
+        "Wrong ID or password ❤️ Try again.";
+
+    }
+
+}
+
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+const birthday = new Date("September 13, 2026 00:00:00").getTime();
+
+function updateCountdown(){
+
+    const now = new Date().getTime();
+    const distance = birthday - now;
+
+    if(distance <= 0){
+
+        document.getElementById("days").innerText = "00";
+        document.getElementById("hours").innerText = "00";
+        document.getElementById("minutes").innerText = "00";
+        document.getElementById("seconds").innerText = "00";
+
+        return;
+    }
+
+    const days =
+        Math.floor(distance / (1000*60*60*24));
+
+    const hours =
+        Math.floor((distance % (1000*60*60*24))
+        / (1000*60*60));
+
+    const minutes =
+        Math.floor((distance % (1000*60*60))
+        / (1000*60));
+
+    const seconds =
+        Math.floor((distance % (1000*60))
+        / 1000);
+
+    document.getElementById("days").innerText =
+        String(days).padStart(2,"0");
+
+    document.getElementById("hours").innerText =
+        String(hours).padStart(2,"0");
+
+    document.getElementById("minutes").innerText =
+        String(minutes).padStart(2,"0");
+
+    document.getElementById("seconds").innerText =
+        String(seconds).padStart(2,"0");
+
+}
+
+updateCountdown();
+setInterval(updateCountdown,1000);
+
+
+/* =========================
+   HEARTS
+========================= */
+
+function createHearts(){
+
+    for(let i=0;i<25;i++){
+
+        const heart = document.createElement("div");
+
+        heart.className = "heart";
+
+        heart.innerText =
+            ["❤️","💖","💕","💗","✨"][Math.floor(Math.random()*5)];
+
+        heart.style.left =
+            Math.random()*100 + "%";
+
+        heart.style.animationDuration =
+            (5 + Math.random()*8) + "s";
+
+        heart.style.animationDelay =
+            Math.random()*5 + "s";
+
+        heart.style.fontSize =
+            (12 + Math.random()*18) + "px";
+
+        document.body.appendChild(heart);
+
+    }
+
+}
+
+
+/* =========================
+   CONFETTI
+========================= */
+
+function celebrate(){
+
+    for(let i=0;i<120;i++){
+
+        const confetti =
+            document.createElement("div");
+
+        confetti.className = "confetti";
+
+        confetti.style.left =
+            Math.random()*100 + "vw";
+
+        confetti.style.animationDelay =
+            Math.random()*1.5 + "s";
+
+        confetti.style.background =
+            [
+                "#ff4ca5",
+                "#ffd45e",
+                "#7ee7ff",
+                "#a66cff",
+                "#ffffff",
+                "#6eff9a"
+            ][Math.floor(Math.random()*6)];
+
+        confetti.style.transform =
+            "rotate("+Math.random()*360+"deg)";
+
+        document.body.appendChild(confetti);
+
+        setTimeout(()=>{
+            confetti.remove();
+        },5000);
+
+    }
+
+}
+
+
+/* =========================
+   GIFT
+========================= */
+
+function openGift(){
+
+    const letter =
+        document.getElementById("letter");
+
+    letter.classList.toggle("show");
+
+    if(letter.classList.contains("show")){
+
+        setTimeout(()=>{
+            letter.scrollIntoView({
+                behavior:"smooth",
+                block:"center"
+            });
+        },200);
+
+        celebrate();
+
+    }
+
+}
+
+
+/* =========================
+   PHOTO LIGHTBOX
+========================= */
+
+function openPhoto(element){
+
+    const img =
+        element.querySelector("img");
+
+    document.getElementById("lightboxImg").src =
+        img.src;
+
+    document.getElementById("lightbox").style.display =
+        "flex";
+
+}
+
+function closePhoto(){
+
+    document.getElementById("lightbox").style.display =
+        "none";
+
+}
+
+
+/* =========================
+   MUSIC
+========================= */
+
+let musicPlaying = false;
+
+function toggleMusic(){
+
+    const music =
+        document.getElementById("music");
+
+    if(!musicPlaying){
+
+        music.play()
+        .then(()=>{
+            musicPlaying = true;
+            document.querySelector(".music-btn").innerText = "🔊";
+        })
+        .catch(()=>{
+            alert(
+                "Pehle music/birthday.mp3 upload karo ❤️"
+            );
+        });
+
+    }else{
+
+        music.pause();
+
+        musicPlaying = false;
+
+        document.querySelector(".music-btn").innerText =
+            "🎵";
+
+    }
+
+}
+
+
+/* =========================
+   ESCAPE LIGHTBOX
+========================= */
+
+document.addEventListener("keydown",function(e){
+
+    if(e.key === "Escape"){
+        closePhoto();
+    }
+
+});
+
+</script>
+
+</body>
+</html>
