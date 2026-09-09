@@ -1046,6 +1046,276 @@ footer p{
             0 0 90px rgba(150,70,255,.55);
     }
         }
+    /* ================= VIDEO SECTION ================= */
+
+.video-section{
+    padding:80px 20px;
+    text-align:center;
+}
+
+.video-box{
+    max-width:850px;
+    margin:35px auto 0;
+    padding:10px;
+    border-radius:28px;
+    background:linear-gradient(135deg,#ff4ca5,#9b4dff,#ff8ac9,#6d5cff);
+    background-size:300% 300%;
+    animation:videoBorder 6s ease infinite;
+    box-shadow:
+        0 0 35px rgba(255,90,180,.35),
+        0 0 80px rgba(130,70,255,.25);
+}
+
+.video-box video{
+    width:100%;
+    display:block;
+    border-radius:22px;
+    background:#08030d;
+}
+
+@keyframes videoBorder{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+/* ================= TIMELINE ================= */
+
+.timeline{
+    max-width:900px;
+    margin:50px auto;
+    position:relative;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:0;
+    bottom:0;
+    width:3px;
+    background:linear-gradient(#ff4ca5,#9b4dff,#ff8ac9);
+    transform:translateX(-50%);
+}
+
+.timeline-item{
+    width:50%;
+    padding:20px 35px;
+    position:relative;
+    opacity:0;
+    transform:translateY(50px);
+    transition:1s ease;
+}
+
+.timeline-item.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.timeline-item:nth-child(odd){
+    left:0;
+    text-align:right;
+}
+
+.timeline-item:nth-child(even){
+    left:50%;
+    text-align:left;
+}
+
+.timeline-dot{
+    position:absolute;
+    top:30px;
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    background:#ff65b5;
+    box-shadow:0 0 20px #ff65b5;
+}
+
+.timeline-item:nth-child(odd) .timeline-dot{
+    right:-9px;
+}
+
+.timeline-item:nth-child(even) .timeline-dot{
+    left:-9px;
+}
+
+.timeline-card{
+    padding:15px;
+    border-radius:22px;
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.15);
+    backdrop-filter:blur(12px);
+}
+
+.timeline-card img{
+    width:100%;
+    max-height:400px;
+    object-fit:cover;
+    border-radius:16px;
+}
+
+.timeline-card h3{
+    margin:12px 0 5px;
+}
+
+.timeline-card p{
+    opacity:.8;
+}
+
+@media(max-width:700px){
+
+    .timeline::before{
+        left:15px;
+    }
+
+    .timeline-item,
+    .timeline-item:nth-child(even),
+    .timeline-item:nth-child(odd){
+        width:100%;
+        left:0;
+        padding-left:45px;
+        text-align:left;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-dot,
+    .timeline-item:nth-child(even) .timeline-dot{
+        left:6px;
+        right:auto;
+    }
+    }
+    /* ================= MAGIC GIFTS ================= */
+
+.gifts-section{
+    padding:80px 20px;
+    text-align:center;
+}
+
+.gifts-grid{
+    max-width:1000px;
+    margin:40px auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.magic-gift{
+    padding:30px 15px;
+    border-radius:25px;
+    cursor:pointer;
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.15);
+    transition:.4s;
+}
+
+.magic-gift:hover{
+    transform:translateY(-10px) scale(1.03);
+    box-shadow:0 0 30px rgba(255,80,180,.3);
+}
+
+.magic-gift .gift-icon{
+    font-size:55px;
+}
+
+.magic-gift h3{
+    margin:10px 0 5px;
+}
+
+.gift-modal{
+    position:fixed;
+    inset:0;
+    z-index:99999;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    background:rgba(5,0,15,.88);
+    backdrop-filter:blur(15px);
+}
+
+.gift-modal.show{
+    display:flex;
+}
+
+.gift-modal-card{
+    max-width:500px;
+    width:100%;
+    padding:35px 25px;
+    text-align:center;
+    border-radius:30px;
+    background:linear-gradient(145deg,#24102f,#13091e);
+    border:1px solid rgba(255,255,255,.2);
+    box-shadow:0 0 60px rgba(255,70,180,.3);
+    animation:giftPop .5s ease;
+}
+
+@keyframes giftPop{
+    from{
+        transform:scale(.5) rotate(-5deg);
+        opacity:0;
+    }
+    to{
+        transform:scale(1) rotate(0);
+        opacity:1;
+    }
+}
+
+.gift-modal-card .big-icon{
+    font-size:65px;
+}
+
+.gift-modal-card button,
+.secret-letter button{
+    border:0;
+    padding:12px 25px;
+    border-radius:25px;
+    cursor:pointer;
+    margin-top:20px;
+    background:linear-gradient(90deg,#ff4ca5,#9b4dff);
+    color:white;
+    font-weight:bold;
+}
+
+/* ================= SECRET LETTERS ================= */
+
+.letters{
+    max-width:1000px;
+    margin:40px auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.secret-letter{
+    padding:25px 15px;
+    border-radius:22px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.12);
+    cursor:pointer;
+    transition:.4s;
+}
+
+.secret-letter:hover{
+    transform:translateY(-8px);
+}
+
+.envelope{
+    font-size:50px;
+}
+
+@media(max-width:800px){
+    .gifts-grid,
+    .letters{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:500px){
+    .gifts-grid,
+    .letters{
+        grid-template-columns:1fr;
+    }
+    }
 </style>
 </head>
 
@@ -1326,7 +1596,239 @@ footer p{
         </div>
 
     </section>
+    
+<!-- ================= BIRTHDAY VIDEO ================= -->
 
+<section class="video-section">
+
+    <h2>🎬 A Little Video For You</h2>
+
+    <p>
+        Six pictures, countless memories... ❤️
+    </p>
+
+    <div class="video-box">
+        <video controls playsinline preload="metadata">
+            <source src="video/birthday.mp4" type="video/mp4">
+            Your browser does not support video.
+        </video>
+    </div>
+
+</section>
+
+
+<!-- ================= PHOTO TIMELINE ================= -->
+
+<section class="video-section">
+
+    <h2>✨ A Few Beautiful Moments</h2>
+
+    <p>Every picture has its own little story. 💖</p>
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+                <img src="images/IMG-20260908-WA1214.jpg">
+                <h3>🌸 A Beautiful Beginning</h3>
+                <p>Some smiles simply make everything feel better.</p>
+            </div>
+        </div>
+
+
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+                <img src="images/IMG-20260908-WA2282.jpg">
+                <h3>💗 That Beautiful Smile</h3>
+                <p>May this smile always remain exactly the same.</p>
+            </div>
+        </div>
+
+
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+                <img src="images/IMG-20260908-WA4321.jpg">
+                <h3>✨ Keep Shining</h3>
+                <p>You deserve all the happiness life has to offer.</p>
+            </div>
+        </div>
+
+
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+                <img src="images/IMG-20260908-WA5613.jpg">
+                <h3>🦋 Stay Beautiful</h3>
+                <p>Stay the same beautiful soul you have always been.</p>
+            </div>
+        </div>
+
+
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+                <img src="images/file_00000000cfd08230b5e84590a218eef2.png">
+                <h3>💫 Keep Smiling</h3>
+                <p>May every new chapter of your life be beautiful.</p>
+            </div>
+        </div>
+
+
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+                <img src="images/file_00000000fd9881f5b07dc944fd546db8.png">
+                <h3>❤️ Always Special</h3>
+                <p>No matter what happens, you will always be special.</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+    <!-- ================= 7 MAGIC GIFTS ================= -->
+
+<section class="gifts-section">
+
+    <h2>🎁 Seven Little Gifts</h2>
+
+    <p>
+        Open them one by one... there's something special inside. ❤️
+    </p>
+
+    <div class="gifts-grid">
+
+        <div class="magic-gift" onclick="openMagicGift(1)">
+            <div class="gift-icon">🎁</div>
+            <h3>Gift One</h3>
+            <p>A Wish</p>
+        </div>
+
+        <div class="magic-gift" onclick="openMagicGift(2)">
+            <div class="gift-icon">🎀</div>
+            <h3>Gift Two</h3>
+            <p>A Memory</p>
+        </div>
+
+        <div class="magic-gift" onclick="openMagicGift(3)">
+            <div class="gift-icon">💝</div>
+            <h3>Gift Three</h3>
+            <p>A Message</p>
+        </div>
+
+        <div class="magic-gift" onclick="openMagicGift(4)">
+            <div class="gift-icon">🌸</div>
+            <h3>Gift Four</h3>
+            <p>A Promise</p>
+        </div>
+
+        <div class="magic-gift" onclick="openMagicGift(5)">
+            <div class="gift-icon">😂</div>
+            <h3>Gift Five</h3>
+            <p>A Smile</p>
+        </div>
+
+        <div class="magic-gift" onclick="openMagicGift(6)">
+            <div class="gift-icon">🎬</div>
+            <h3>Gift Six</h3>
+            <p>A Video</p>
+        </div>
+
+        <div class="magic-gift" onclick="openMagicGift(7)">
+            <div class="gift-icon">👑</div>
+            <h3>Gift Seven</h3>
+            <p>The Final One</p>
+        </div>
+
+    </div>
+
+
+    <!-- SECRET LETTERS -->
+
+    <h2 style="margin-top:80px;">💌 Secret Letters</h2>
+
+    <div class="letters">
+
+        <div class="secret-letter" onclick="openLetter(1)">
+            <div class="envelope">💌</div>
+            <h3>Open Me</h3>
+            <p>Secret Letter #1</p>
+        </div>
+
+        <div class="secret-letter" onclick="openLetter(2)">
+            <div class="envelope">💌</div>
+            <h3>One More</h3>
+            <p>Secret Letter #2</p>
+        </div>
+
+        <div class="secret-letter" onclick="openLetter(3)">
+            <div class="envelope">💌</div>
+            <h3>For You</h3>
+            <p>Secret Letter #3</p>
+        </div>
+
+        <div class="secret-letter" onclick="openLetter(4)">
+            <div class="envelope">💌</div>
+            <h3>Last Letter</h3>
+            <p>Secret Letter #4</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- GIFT POPUP -->
+
+<div id="magicGiftModal" class="gift-modal">
+
+    <div class="gift-modal-card">
+
+        <div class="big-icon" id="magicGiftIcon">🎁</div>
+
+        <h2 id="magicGiftTitle">A Special Gift</h2>
+
+        <p id="magicGiftText">
+            Something special just for you. ❤️
+        </p>
+
+        <button onclick="closeMagicGift()">
+            Close ❤️
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- LETTER POPUP -->
+
+<div id="letterModal" class="gift-modal">
+
+    <div class="gift-modal-card">
+
+        <div class="big-icon">💌</div>
+
+        <h2 id="letterTitle">A Secret Letter</h2>
+
+        <p id="letterText"></p>
+
+        <button onclick="closeLetter()">
+            Keep It Secret 🤫
+        </button>
+
+    </div>
+
+</div>
 
     <!-- WISHES -->
 
