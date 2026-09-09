@@ -2191,7 +2191,26 @@ footer p{
 <audio id="music" loop>
     <source src="music/birthday.mp3" type="audio/mpeg">
 </audio>
+    <!-- PHOTO SURPRISE POPUP -->
+<div id="photoSurprise" onclick="closePhotoSurprise(event)">
+    <div class="photo-surprise-card">
 
+        <div class="photo-sparkles">✨ 💖 ✨</div>
+
+        <img id="surprisePhoto" src="" alt="Beautiful Memory">
+
+        <h2 id="photoTitle">A Beautiful Memory ❤️</h2>
+
+        <p id="photoMessage">
+            Some moments are too beautiful to be forgotten. ✨
+        </p>
+
+        <button onclick="closePhotoSurprise(event)">
+            Close ❤️
+        </button>
+
+    </div>
+</div>
 
 <script>
 
@@ -2470,26 +2489,7 @@ document.addEventListener("keydown",function(e){
 
 });
 
-    <!-- PHOTO SURPRISE POPUP -->
-<div id="photoSurprise" onclick="closePhotoSurprise(event)">
-    <div class="photo-surprise-card">
 
-        <div class="photo-sparkles">✨ 💖 ✨</div>
-
-        <img id="surprisePhoto" src="" alt="Beautiful Memory">
-
-        <h2 id="photoTitle">A Beautiful Memory ❤️</h2>
-
-        <p id="photoMessage">
-            Some moments are too beautiful to be forgotten. ✨
-        </p>
-
-        <button onclick="closePhotoSurprise(event)">
-            Close ❤️
-        </button>
-
-    </div>
-</div>
     /* =====================================================
    TIMELINE ANIMATION
 ===================================================== */
