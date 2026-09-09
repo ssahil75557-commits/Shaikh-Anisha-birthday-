@@ -1316,6 +1316,75 @@ footer p{
         grid-template-columns:1fr;
     }
     }
+    /* ================= FINAL SURPRISE ================= */
+
+#finalSurprise{
+    position:fixed;
+    inset:0;
+    z-index:100000;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    background:
+        radial-gradient(circle at 20% 20%,rgba(255,70,180,.25),transparent 30%),
+        radial-gradient(circle at 80% 80%,rgba(120,70,255,.3),transparent 35%),
+        #08030d;
+    backdrop-filter:blur(15px);
+}
+
+#finalSurprise.show{
+    display:flex;
+}
+
+.final-card{
+    max-width:650px;
+    width:100%;
+    text-align:center;
+    padding:45px 25px;
+    border-radius:35px;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.2);
+    box-shadow:0 0 80px rgba(255,80,190,.3);
+    animation:finalPop .8s ease;
+}
+
+@keyframes finalPop{
+    from{
+        transform:scale(.4);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+.final-card .crown{
+    font-size:70px;
+}
+
+.final-card h1{
+    font-size:clamp(30px,7vw,55px);
+    margin:15px 0;
+}
+
+.final-message{
+    font-size:18px;
+    line-height:1.8;
+    opacity:.9;
+}
+
+.final-card button{
+    margin-top:25px;
+    padding:13px 28px;
+    border:0;
+    border-radius:25px;
+    background:linear-gradient(90deg,#ff4ca5,#9b4dff);
+    color:white;
+    cursor:pointer;
+    font-weight:bold;
+}
 </style>
 </head>
 
@@ -2034,6 +2103,44 @@ footer p{
         </div>
 
     </section>
+    <!-- ================= FINAL SURPRISE ================= -->
+
+<div id="finalSurprise">
+
+    <div class="final-card">
+
+        <div class="crown">👑</div>
+
+        <h1>Happy Birthday, Anisha ❤️</h1>
+
+        <p class="final-message">
+
+            And finally... one last thing. ✨<br><br>
+
+            Life mein chahe kitne bhi chapters aayein,
+            bas apni woh beautiful smile kabhi mat khona. 🌸
+
+            <br><br>
+
+            May Allah fill your life with happiness,
+            success, peace and countless beautiful moments.
+
+            <br><br>
+
+            <strong>
+                You will always be more than just a sister.
+                You are a very special part of my life. ❤️
+            </strong>
+
+        </p>
+
+        <button onclick="closeFinalSurprise()">
+            Close With Love ❤️
+        </button>
+
+    </div>
+
+</div>
 
 
     <!-- FOOTER -->
@@ -2363,7 +2470,6 @@ document.addEventListener("keydown",function(e){
 
 });
 
-</script>
     <!-- PHOTO SURPRISE POPUP -->
 <div id="photoSurprise" onclick="closePhotoSurprise(event)">
     <div class="photo-surprise-card">
@@ -2384,6 +2490,271 @@ document.addEventListener("keydown",function(e){
 
     </div>
 </div>
+    /* =====================================================
+   TIMELINE ANIMATION
+===================================================== */
+
+const timelineItems = document.querySelectorAll(".timeline-item");
+
+const timelineObserver = new IntersectionObserver(
+    function(entries){
+
+        entries.forEach(function(entry){
+
+            if(entry.isIntersecting){
+                entry.target.classList.add("show");
+            }
+
+        });
+
+    },
+    {
+        threshold:0.15
+    }
+);
+
+timelineItems.forEach(function(item){
+    timelineObserver.observe(item);
+});
+
+
+/* =====================================================
+   7 MAGIC GIFTS
+===================================================== */
+
+const gifts = {
+
+    1:{
+        icon:"🌸",
+        title:"A Birthday Wish",
+        text:"May this new year of your life bring you happiness, peace, success and everything your heart wishes for. ❤️"
+    },
+
+    2:{
+        icon:"📸",
+        title:"A Beautiful Memory",
+        text:"Some moments become memories, and some memories become forever special. This is one of those moments. ✨"
+    },
+
+    3:{
+        icon:"💝",
+        title:"A Little Message",
+        text:"No matter how much time passes, always remember that you are loved, valued and very special. ❤️"
+    },
+
+    4:{
+        icon:"🤝",
+        title:"A Promise",
+        text:"One promise from your brother — whenever you need someone, I'll always try my best to be there for you."
+    },
+
+    5:{
+        icon:"😂",
+        title:"A Reason To Smile",
+        text:"Life is too short to take everything seriously. So keep smiling, keep laughing and keep annoying everyone around you. 😂❤️"
+    },
+
+    6:{
+        icon:"🎬",
+        title:"Your Birthday Video",
+        text:"A little video made specially for your birthday. Go watch it and smile. 🎬❤️"
+    },
+
+    7:{
+        icon:"👑",
+        title:"The Most Special Gift",
+        text:"The final gift is simple — a reminder that you are one of the most special people in my life. Happy Birthday, Anisha. ❤️"
+    }
+
+};
+
+
+function openMagicGift(number){
+
+    const gift = gifts[number];
+
+    document.getElementById("magicGiftIcon").innerText = gift.icon;
+
+    document.getElementById("magicGiftTitle").innerText = gift.title;
+
+    document.getElementById("magicGiftText").innerText = gift.text;
+
+    document.getElementById("magicGiftModal").classList.add("show");
+
+    if(typeof celebrate === "function"){
+        celebrate();
+    }
+
+}
+
+
+function closeMagicGift(){
+
+    document
+        .getElementById("magicGiftModal")
+        .classList.remove("show");
+
+}
+
+
+/* =====================================================
+   SECRET LETTERS
+===================================================== */
+
+const letters = {
+
+    1:{
+        title:"For My Beautiful Sister ❤️",
+        text:"Tumhari smile mein ek alag hi positivity hai. Bas dua hai ki zindagi tumhe hamesha muskurane ke reasons deti rahe."
+    },
+
+    2:{
+        title:"A Little Secret 🤫",
+        text:"Kabhi kabhi hum apne close people ko batate nahi, lekin unki presence humare liye bahut matter karti hai. You are one of those people."
+    },
+
+    3:{
+        title:"From The Heart 💖",
+        text:"Tum jaisi ho, waise hi rehna. Duniya badalne ki zarurat nahi. Apni kindness, apni smile aur apna beautiful heart kabhi mat khona."
+    },
+
+    4:{
+        title:"One Last Letter 🌸",
+        text:"May your future be brighter than your past, your smile bigger than your worries, and your happiness greater than anything you imagined."
+    }
+
+};
+
+
+function openLetter(number){
+
+    document.getElementById("letterTitle").innerText =
+        letters[number].title;
+
+    document.getElementById("letterText").innerText =
+        letters[number].text;
+
+    document.getElementById("letterModal").classList.add("show");
+
+}
+
+
+function closeLetter(){
+
+    document
+        .getElementById("letterModal")
+        .classList.remove("show");
+
+}
+
+
+/* =====================================================
+   GRAND CELEBRATION
+===================================================== */
+
+function grandCelebration(){
+
+    if(typeof celebrate === "function"){
+        celebrate();
+    }
+
+    createFireworks();
+
+    setTimeout(function(){
+
+        document
+            .getElementById("finalSurprise")
+            .classList.add("show");
+
+    },1800);
+
+}
+
+
+/* =====================================================
+   FIREWORKS
+===================================================== */
+
+function createFireworks(){
+
+    for(let i=0;i<35;i++){
+
+        const firework = document.createElement("div");
+
+        firework.innerHTML = "✨";
+
+        firework.style.position = "fixed";
+        firework.style.left = Math.random()*100 + "vw";
+        firework.style.top = Math.random()*80 + "vh";
+        firework.style.fontSize =
+            (15 + Math.random()*25) + "px";
+
+        firework.style.zIndex = "100001";
+
+        firework.style.pointerEvents = "none";
+
+        document.body.appendChild(firework);
+
+        firework.animate(
+            [
+                {
+                    transform:"scale(0)",
+                    opacity:1
+                },
+                {
+                    transform:
+                        "scale(1.8) translate(" +
+                        (Math.random()*100-50) +
+                        "px," +
+                        (Math.random()*100-50) +
+                        "px)",
+                    opacity:0
+                }
+            ],
+            {
+                duration:1200 + Math.random()*1000,
+                easing:"ease-out"
+            }
+        );
+
+        setTimeout(function(){
+            firework.remove();
+        },2500);
+
+    }
+
+}
+
+
+/* =====================================================
+   CLOSE FINAL SURPRISE
+===================================================== */
+
+function closeFinalSurprise(){
+
+    document
+        .getElementById("finalSurprise")
+        .classList.remove("show");
+
+}
+
+
+/* =====================================================
+   ESC KEY
+===================================================== */
+
+document.addEventListener("keydown",function(e){
+
+    if(e.key === "Escape"){
+
+        closeMagicGift();
+        closeLetter();
+        closeFinalSurprise();
+
+    }
+
+});
+</script>
 
 </body>
 </html>
