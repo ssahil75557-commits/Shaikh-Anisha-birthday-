@@ -3175,77 +3175,151 @@ document.addEventListener("keydown",function(e){
     }
 
 });
-    /* 🌙 MIDNIGHT GRAND OPENING */
+    /* =====================================================
+   🌙 MIDNIGHT GRAND OPENING — FINAL VERSION
+===================================================== */
 
-const midnightBirthday = new Date(2026, 8, 13, 0, 0, 0).getTime();
-    let midnightEntered = false;
+const midnightBirthday =
+    new Date(2026, 8, 13, 0, 0, 0).getTime();
+
+let midnightEntered = false;
+let midnightTimer = null;
+
+
+/* =====================================================
+   CHECK MIDNIGHT
+===================================================== */
 
 function checkMidnightOpening() {
 
     const now = new Date().getTime();
-    const opening = document.getElementById("midnightOpening");
-    const timeText = document.getElementById("midnightTime");
 
-    if (!opening || !timeText) return;
-    if (midnightEntered) return;
+    const midnightScreen =
+        document.getElementById("midnightOpening");
 
-    // 🎂 Birthday time reached
+    const midnightTime =
+        document.getElementById("midnightTime");
+
+    if (!midnightScreen || !midnightTime) {
+        return;
+    }
+
+    // Already entered — NEVER show again
+    if (midnightEntered) {
+        return;
+    }
+
+    /* 🎂 Birthday has arrived */
+
     if (now >= midnightBirthday) {
 
-        timeText.innerHTML = "12:00 AM ✨";
+        midnightTime.innerHTML = "12:00 AM ✨";
 
-        opening.classList.remove("hide");
-        opening.classList.add("show");
+        midnightScreen.style.display = "flex";
 
-    } else {
+        midnightScreen.classList.remove("hide");
+        midnightScreen.classList.add("show");
 
-        // Before midnight — keep it completely hidden
-        opening.classList.remove("show");
-        opening.classList.remove("hide");
     }
+
 }
 
-// Check immediately
+
+/* =====================================================
+   START MIDNIGHT CHECK
+===================================================== */
+
 checkMidnightOpening();
 
-// Then check every second
-setInterval(checkMidnightOpening, 1000);
+midnightTimer = setInterval(
+    checkMidnightOpening,
+    1000
+);
 
 
-/* 🎁 ENTER THE BIRTHDAY WEBSITE */
+/* =====================================================
+   🎁 ENTER YOUR SURPRISE
+===================================================== */
 
 function enterBirthday() {
 
-    const opening = document.getElementById("midnightOpening");
-
-    if (!opening) return;
-
-    // 🚫 Midnight screen ko dobara open hone se rokna
+    // 🚫 Stop the midnight checker completely
     midnightEntered = true;
 
-    opening.classList.remove("show");
-    opening.classList.add("hide");
-
-    // ❤️ Existing effects
-    setTimeout(() => {
-
-        if (typeof createHearts === "function") {
-            createHearts();
-        }
-
-        if (typeof launchConfetti === "function") {
-            launchConfetti();
-        }
-
-        // 🎵 Music
-        const music = document.getElementById("music");
-
-        if (music) {
-            music.play().catch(() => {});
-        }
-
-    }, 900);
+    if (midnightTimer) {
+        clearInterval(midnightTimer);
+        midnightTimer = null;
     }
+
+
+    /* 🌙 Hide Midnight Screen */
+
+    const midnightScreen =
+        document.getElementById("midnightOpening");
+
+    if (midnightScreen) {
+
+        midnightScreen.classList.remove("show");
+        midnightScreen.classList.add("hide");
+
+        midnightScreen.style.display = "none";
+    }
+
+
+    /* 🚫 Also remove the old cinematic opening */
+
+    const oldOpening =
+        document.getElementById("opening");
+
+    if (oldOpening) {
+
+        oldOpening.style.display = "none";
+        oldOpening.style.visibility = "hidden";
+        oldOpening.style.pointerEvents = "none";
+    }
+
+
+    /* 🔐 FORCE LOGIN SCREEN TO STAY */
+
+    const loginScreen =
+        document.getElementById("loginScreen");
+
+    if (loginScreen) {
+
+        loginScreen.style.display = "flex";
+        loginScreen.style.visibility = "visible";
+        loginScreen.style.opacity = "1";
+        loginScreen.style.pointerEvents = "auto";
+    }
+
+
+    /* 🎂 MAIN WEBSITE MUST STAY HIDDEN */
+
+    const website =
+        document.getElementById("website");
+
+    if (website) {
+
+        website.style.display = "none";
+    }
+
+
+    /* 🎵 DO NOT AUTOPLAY MUSIC HERE */
+
+    const music =
+        document.getElementById("music");
+
+    if (music) {
+
+        music.pause();
+        music.currentTime = 0;
+    }
+
+
+    /* 🔝 Go to login screen */
+
+    window.scrollTo(0, 0);
+}
 </script>
 
 </body>
