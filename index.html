@@ -669,7 +669,58 @@ section{
     font-size:22px;
     cursor:pointer;
     box-shadow:0 10px 30px rgba(255,60,170,.3);
+}.instagram-card {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 25px;
+    border-radius: 25px;
+    text-align: center;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.18);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+    transition: 0.4s ease;
 }
+
+.instagram-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 55px rgba(255,80,150,0.35);
+}
+
+.insta-icon {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+.insta-content h3 {
+    margin: 5px 0;
+    font-size: 24px;
+    color: white;
+}
+
+.insta-content p {
+    margin: 8px 0 20px;
+    color: #ffb6d9;
+    font-size: 16px;
+}
+
+.insta-btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+    box-shadow: 0 8px 25px rgba(253,29,29,0.3);
+    transition: 0.3s ease;
+}
+
+.insta-btn:hover {
+    transform: scale(1.06);
+    box-shadow: 0 12px 35px rgba(253,29,29,0.5);
+    }
+    
 
 /* =========================
    FOOTER
@@ -2147,6 +2198,21 @@ footer p{
 
     </div>
 
+</div>
+    <div class="instagram-card">
+    <div class="insta-icon">📸</div>
+
+    <div class="insta-content">
+        <h3>Find Me on Instagram</h3>
+        <p>@anisashaikh12345</p>
+    </div>
+
+    <a href="https://www.instagram.com/anisashaikh12345/"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="insta-btn">
+        Visit Profile ✨
+    </a>
 </div>
 
 
