@@ -3178,6 +3178,7 @@ document.addEventListener("keydown",function(e){
     /* 🌙 MIDNIGHT GRAND OPENING */
 
 const midnightBirthday = new Date(2026, 8, 13, 0, 0, 0).getTime();
+    let midnightEntered = false;
 
 function checkMidnightOpening() {
 
@@ -3186,6 +3187,7 @@ function checkMidnightOpening() {
     const timeText = document.getElementById("midnightTime");
 
     if (!opening || !timeText) return;
+    if (midnightEntered) return;
 
     // 🎂 Birthday time reached
     if (now >= midnightBirthday) {
@@ -3218,7 +3220,9 @@ function enterBirthday() {
 
     if (!opening) return;
 
-    // Hide midnight screen
+    // 🚫 Midnight screen ko dobara open hone se rokna
+    midnightEntered = true;
+
     opening.classList.remove("show");
     opening.classList.add("hide");
 
@@ -3233,17 +3237,15 @@ function enterBirthday() {
             launchConfetti();
         }
 
-        // 🎵 Try to start existing birthday music
+        // 🎵 Music
         const music = document.getElementById("music");
 
         if (music) {
-            music.play().catch(() => {
-                // Browser may block autoplay
-            });
+            music.play().catch(() => {});
         }
 
     }, 900);
-            }
+    }
 </script>
 
 </body>
