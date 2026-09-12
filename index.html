@@ -1436,10 +1436,358 @@ footer p{
     cursor:pointer;
     font-weight:bold;
 }
+    /* 🌙 MIDNIGHT GRAND OPENING */
+
+#midnightOpening {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 1.2s ease, visibility 1.2s ease;
+}
+
+#midnightOpening.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+#midnightOpening.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+    /* 🌙 MIDNIGHT GRAND OPENING DESIGN */
+
+#midnightOpening {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(circle at 50% 40%, rgba(255, 50, 150, 0.18), transparent 35%),
+        linear-gradient(135deg, #08000f, #160018, #050008);
+
+    overflow: hidden;
+    text-align: center;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 1.2s ease,
+        visibility 1.2s ease;
+}
+
+#midnightOpening.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+#midnightOpening.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* ✨ Stars */
+.midnight-stars {
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(circle, rgba(255,255,255,.9) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,150,220,.7) 1px, transparent 1px);
+    background-size: 80px 80px, 120px 120px;
+    animation: starMove 12s linear infinite;
+    opacity: .55;
+}
+
+@keyframes starMove {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-80px);
+    }
+}
+
+/* 💎 Main content */
+.midnight-content {
+    position: relative;
+    z-index: 5;
+
+    width: min(90%, 700px);
+    padding: 35px 20px;
+
+    animation: midnightAppear 1.8s ease;
+}
+
+@keyframes midnightAppear {
+    from {
+        opacity: 0;
+        transform: scale(.75) translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* 🕛 Time */
+#midnightTime {
+    font-size: clamp(38px, 10vw, 80px);
+    font-weight: 800;
+    letter-spacing: 5px;
+
+    color: white;
+
+    text-shadow:
+        0 0 10px #fff,
+        0 0 30px rgba(255,70,180,.8),
+        0 0 70px rgba(255,50,160,.6);
+
+    margin-bottom: 15px;
+}
+
+/* Small heading */
+.midnight-small {
+    font-size: 13px;
+    letter-spacing: 5px;
+    color: #ffafd9;
+    margin-bottom: 18px;
+}
+
+/* 🎂 Happy Birthday */
+.midnight-content h1 {
+    margin: 0;
+
+    font-size: clamp(42px, 11vw, 100px);
+    font-weight: 900;
+    line-height: 1;
+
+    background: linear-gradient(
+        90deg,
+        #fff,
+        #ff9ed4,
+        #fff,
+        #ff62b7
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    background-size: 250% auto;
+    animation: birthdayGlow 3s linear infinite;
+}
+
+@keyframes birthdayGlow {
+    to {
+        background-position: 250% center;
+    }
+}
+
+/* ❤️ Name */
+.midnight-content h2 {
+    margin: 20px 0;
+
+    font-size: clamp(28px, 7vw, 55px);
+    color: #fff;
+
+    text-shadow:
+        0 0 10px #ff65b7,
+        0 0 30px #ff2396,
+        0 0 60px rgba(255,35,150,.7);
+
+    animation: heartPulse 1.8s infinite;
+}
+
+@keyframes heartPulse {
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* 💌 Message */
+.midnight-message {
+    color: rgba(255,255,255,.82);
+    font-size: 16px;
+    line-height: 1.8;
+    margin: 15px auto 30px;
+}
+
+/* 🎁 Button */
+.midnight-enter {
+    border: none;
+    outline: none;
+
+    padding: 15px 30px;
+    border-radius: 50px;
+
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff2f9d,
+            #9b2cff,
+            #ff2f9d
+        );
+
+    background-size: 200% auto;
+
+    box-shadow:
+        0 10px 30px rgba(255,40,160,.35),
+        0 0 35px rgba(255,40,160,.2);
+
+    transition: .35s ease;
+
+    animation: buttonGlow 2s infinite;
+}
+
+.midnight-enter:hover {
+    transform: scale(1.08);
+    background-position: right center;
+
+    box-shadow:
+        0 15px 45px rgba(255,40,160,.55),
+        0 0 60px rgba(255,40,160,.3);
+}
+
+@keyframes buttonGlow {
+    50% {
+        box-shadow:
+            0 10px 35px rgba(255,40,160,.55),
+            0 0 45px rgba(255,40,160,.3);
+    }
+}
+
+/* 🎆 Fireworks */
+.firework {
+    position: absolute;
+    z-index: 2;
+
+    font-size: 45px;
+
+    animation:
+        fireworkFloat 2.5s ease-in-out infinite,
+        fireworkSpin 4s linear infinite;
+
+    filter:
+        drop-shadow(0 0 10px #fff)
+        drop-shadow(0 0 25px #ff3ba9);
+}
+
+.f1 {
+    top: 15%;
+    left: 12%;
+}
+
+.f2 {
+    top: 20%;
+    right: 12%;
+    animation-delay: .6s;
+}
+
+.f3 {
+    bottom: 15%;
+    left: 15%;
+    animation-delay: 1s;
+}
+
+.f4 {
+    bottom: 18%;
+    right: 15%;
+    animation-delay: 1.5s;
+}
+
+@keyframes fireworkFloat {
+    0%,100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-25px) scale(1.25);
+    }
+}
+
+@keyframes fireworkSpin {
+    to {
+        rotate: 360deg;
+    }
+}
+
+/* 📱 Mobile */
+@media (max-width: 600px) {
+
+    .midnight-content {
+        padding: 25px 15px;
+    }
+
+    .midnight-small {
+        font-size: 10px;
+        letter-spacing: 3px;
+    }
+
+    .midnight-message {
+        font-size: 14px;
+    }
+
+    .midnight-enter {
+        padding: 14px 22px;
+        font-size: 13px;
+    }
+
+    .firework {
+        font-size: 30px;
+    }
+    }
 </style>
 </head>
 
 <body>
+    <!-- 🌙 MIDNIGHT GRAND OPENING -->
+<div id="midnightOpening">
+
+    <div class="midnight-stars"></div>
+
+    <div class="midnight-content">
+
+        <div id="midnightTime">12:00 AM</div>
+
+        <p class="midnight-small">
+            THE WAIT IS FINALLY OVER...
+        </p>
+
+        <h1>HAPPY BIRTHDAY</h1>
+
+        <h2>ANISHA AAPI ❤️</h2>
+
+        <p class="midnight-message">
+            Tonight isn't just another night...<br>
+            It's the beginning of your beautiful new chapter. ✨
+        </p>
+
+        <button onclick="enterBirthday()" class="midnight-enter">
+            🎁 ENTER YOUR SURPRISE ✨
+        </button>
+
+    </div>
+
+    <div class="firework f1">✨</div>
+    <div class="firework f2">💥</div>
+    <div class="firework f3">✨</div>
+    <div class="firework f4">💥</div>
+
+</div>
 <!-- OPENING ANIMATION -->
 <div id="opening">
     <div class="sparkles">✦ ✧ ✦ ✧ ✦</div>
@@ -2827,6 +3175,79 @@ document.addEventListener("keydown",function(e){
     }
 
 });
+    /* 🌙 MIDNIGHT GRAND OPENING */
+
+const midnightBirthday = Date.now() - 1000;
+
+function checkMidnightOpening() {
+
+    const now = new Date().getTime();
+    const opening = document.getElementById("midnightOpening");
+    const timeText = document.getElementById("midnightTime");
+
+    if (!opening || !timeText) return;
+
+    // 🎂 Birthday time reached
+    if (now >= midnightBirthday) {
+
+        timeText.innerHTML = "12:00 AM ✨";
+
+        opening.classList.remove("hide");
+        opening.classList.add("show");
+
+    } else {
+
+        // Before midnight — keep it completely hidden
+        opening.classList.remove("show");
+        opening.classList.remove("hide");
+    }
+}
+
+// Check immediately
+checkMidnightOpening();
+
+// Then check every second
+setInterval(checkMidnightOpening, 1000);
+
+
+/* 🎁 ENTER THE BIRTHDAY WEBSITE */
+
+function enterBirthday() {
+
+    const opening = document.getElementById("midnightOpening");
+
+    if (!opening) return;
+
+    // Hide midnight screen
+    opening.classList.remove("show");
+    opening.classList.add("hide");
+
+    // ❤️ Existing effects
+    setTimeout(() => {
+
+        if (typeof createHearts === "function") {
+            createHearts();
+        }
+
+        if (typeof launchConfetti === "function") {
+            launchConfetti();
+        }
+
+        if (typeof grandCelebration === "function") {
+            grandCelebration();
+        }
+
+        // 🎵 Try to start existing birthday music
+        const music = document.getElementById("music");
+
+        if (music) {
+            music.play().catch(() => {
+                // Browser may block autoplay
+            });
+        }
+
+    }, 900);
+            }
 </script>
 
 </body>
